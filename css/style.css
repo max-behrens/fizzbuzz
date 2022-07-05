@@ -21,6 +21,14 @@ body {
   height: 70px;
 }
 
+.main-inner {
+  display: grid;
+  justify-content: center;
+  flex-direction: column;
+  width: 70%;
+  margin: auto;
+}
+
 
 .title,
 .main,
@@ -29,26 +37,16 @@ body {
   font-size: 18px;
 }
 
-.title-main {
-  padding-top: 20px;
+.output {
+  padding-top:30px;
 }
 
-.button {
-  width: 100%;
-  font-size: 1em;
-  display: block;
-  border: 2px solid #00AFE1;
-  -webkit-border-radius: 5px;
-     -moz-border-radius: 5px;
-          border-radius: 5px;
-  padding: 15px;
-  text-align: center;
-  justify-content: center;
-  color: #fff;
-  font-weight: 700;
-  background: #00AFE1;
-  cursor: pointer;
-  margin-bottom: 30px;
+.output-text {
+  font-size: 16pt;
+}
+
+.title-main {
+  padding-top: 20px;
 }
 
 .textbox {
@@ -57,10 +55,25 @@ body {
   padding-top: 30px;
 }
 
-.mid-text {
-  display: grid;
-  justify-content: center;
+.button {
+  width: 50%;
+  font-size: 1em;
+  display: block;
+  border: 2px solid #00AFE1;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  padding: 15px;
+  text-align: center;
+  margin: auto;
+  color: #fff;
+  font-weight: 700;
+  background: #00AFE1;
+  cursor: pointer;
+  margin-bottom: 30px;
 }
+
+
 
 
 

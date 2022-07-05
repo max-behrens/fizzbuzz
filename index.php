@@ -18,7 +18,7 @@
 
 
     <!-- Main Inner -->
-    <div class='mid-text'>
+    <div class='main-inner'>
 
 
 
@@ -68,7 +68,7 @@
                     </p>
                 </div>-->
                 
-                <div>
+                <div class='output-text'>
                     <?php
                 
                             $input = $_POST['textbox'];
