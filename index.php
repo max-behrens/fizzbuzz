@@ -75,7 +75,7 @@
                             $answers = array();
 
                             for ($a=1;$a<=$input;$a++) {
-                                if ($a % 15 == 0)  {
+                                if (($a % 3 == 0) and ($a % 5 == 0))  {
                                     $answers[] = "Fizz Buzz!";
                                 } elseif ($a % 5 == 0) {
                                     $answers[] = "Buzz!";
