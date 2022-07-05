@@ -17,55 +17,87 @@
     </div>
 
 
+    <!-- Main Inner -->
+    <div class='mid-text'>
 
-    <!-- Title -->
-    <section class="title">
-        <div class="container">
-            <div>
-                <h1 class="title-main">FIZZ BUZZ!</h1>
-                <p class="title-sub">
-                    Please enter a number between 1 and 99 in the box below, then press <b>"Submit".</b>
-                </p>
+
+
+        <!-- Title -->
+        <section class="title">
+            <div class="container">
+                <div>
+                    <h1 class="title-main">FIZZ BUZZ!</h1>
+                    <p>
+                        Please enter a number between 1 and 99 in the box below, then press <b>"Submit".</b>
+                    </p>
+                </div>
             </div>
-        </div>
-    </section>
+        </section>
 
 
-    <!-- Input Form -->
+        <!-- Input Form -->
 
-    <form method='post' action='index.php'>
-        <input type='hidden' name='page' value='index.php'>
-        <input type='hidden' name='dosubmit' value='1'>
-        <input type='hidden' name='pageaction' value='update'>
+        <form method='post' action='index.php'>
+            <input type='hidden' name='page' value='index.php'>
+            <input type='hidden' name='dosubmit' value='1'>
+            <input type='hidden' name='pageaction' value='update'>
 
-        <div class='textbox'>
-            <p>Input Number Here:</p>
-            <input type='text' name='textbox' id='textbox' value='' class='medium' style='color: #333333;'>
-        </div>
+            <div class='textbox'>
+                <p>Input Number Here:</p>
+                <input type='text' name='textbox' id='textbox' value='' class='medium' style='color: #333333;'>
+            </div>
 
-        <div class='sub'>
-            <input type='submit' value='Submit' class='button'>
-        </div>
+            <div>
+                <input type='submit' value='Submit' class='button'>
+            </div>
 
-    </form>
+        </form>
 
 
-     <!-- Main Inner -->
-    
-     <?php
 
+        <?php
         if ($_POST['dosubmit']) {
+        ?>
 
-            print "TEST";
-            print $form_input;
-            print $form_textbox;
-            $input = $_POST['textbox'];
-            print $input;
+            <section class='output'>
 
+                <!--<div>
+                    <h1 class="main">FIZZ BUZZ!</h1>
+                    <p class="sub">
+                        Please enter a number between 1 and 99 in the box below, then press <b>"Submit".</b>
+                    </p>
+                </div>-->
+                
+                <div>
+                    <?php
+                
+                            $input = $_POST['textbox'];
+                            $answers = array();
+
+                            for ($a=1;$a<=$input;$a++) {
+                                if ($a % 15 == 0)  {
+                                    $answers[] = "Fizz Buzz!";
+                                } elseif ($a % 5 == 0) {
+                                    $answers[] = "Buzz!";
+                                } elseif ($a % 3 == 0) {
+                                    $answers[] = "Fizz!";
+                                } else {
+                                    $answers[] = $a;
+                                }
+                            }
+
+                            $string_answers = implode(', ',$answers);
+                            print $string_answers;
+                    ?>
+                </div>
+
+            </section>
+
+        <?php
         }
+        ?>
 
-    ?>
-
+    </div>
 
    
    
