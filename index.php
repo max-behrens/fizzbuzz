@@ -1,17 +1,3 @@
-<?php
-
-require("includes/library.php");
-
-
-if ($form_dosubmit) {
-
-
-}
-
-
-?>
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -45,27 +31,43 @@ if ($form_dosubmit) {
     </section>
 
 
-
-    <!-- Main Inner -->
-    
-
-
     <!-- Input Form -->
-    <form method='post' action='/index.php'>
-        <input type="hidden" name="dosubmit" value="1">
 
-        <li class='textbox'>
+    <form method='post' action='index.php'>
+        <input type='hidden' name='page' value='index.php'>
+        <input type='hidden' name='dosubmit' value='1'>
+        <input type='hidden' name='pageaction' value='update'>
+
+        <div class='textbox'>
             <p>Input Number Here:</p>
-            <div class='container'>
-                <input type='text' name='textbox' id='input' value='' class='medium' style='color: #333333;'>
-            </div>
-        </li>
-
-        <div>
-            <input type='submit' id='gform_submit_button_5' class='button' style="color: #ffffff;" value='Submit'>
+            <input type='text' name='textbox' id='textbox' value='' class='medium' style='color: #333333;'>
         </div>
+
+        <div class='sub'>
+            <input type='submit' value='Submit' class='button'>
+        </div>
+
     </form>
 
+
+     <!-- Main Inner -->
+    
+     <?php
+
+        if ($_POST['dosubmit']) {
+
+            print "TEST";
+            print $form_input;
+            print $form_textbox;
+            $input = $_POST['textbox'];
+            print $input;
+
+        }
+
+    ?>
+
+
+   
    
 </body>
 </html>

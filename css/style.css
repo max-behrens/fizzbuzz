@@ -33,8 +33,7 @@ body {
 }
 
 .button {
-	transition: all 0.3s;
-  width: 100%;
+  width: 20%;
   font-size: 1em;
   display: block;
   border: 2px solid #00AFE1;
@@ -42,16 +41,23 @@ body {
      -moz-border-radius: 5px;
           border-radius: 5px;
   padding: 15px;
-  text-decoration: none;
   text-align: center;
+  justify-content: center;
   color: #fff;
   font-weight: 700;
   background: #00AFE1;
+  cursor: pointer;
 }
 
 .textbox {
   text-align: center;
   padding-bottom: 20px;
+  padding-top: 30px;
+}
+
+.sub {
+  display: flex;
+  justify-content: center;
 }
 
 
