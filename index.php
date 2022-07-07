@@ -35,7 +35,7 @@
         </section>
 
 
-        <!-- Input Form -->
+        <!-- Input Buttons -->
 
         <div class='format-buttons'>
 
@@ -75,6 +75,9 @@
         </div>
 
 
+        <!-- Answer Space -->
+
+
         <div class='answer-textbox'>
             <p><b>ANSWER:</b></p>
         </div>
@@ -94,7 +97,7 @@
 
                                 for ($a=0;$a<=$input;$a++) {
                                     if ($a != 0) {
-                                        if (($a % 3 == 0) and ($a % 5 == 0))  {
+                                        if (($a % 15 == 0))  {
                                             $answers[$a] = "Fizz Buzz!";
                                         } elseif ($a % 5 == 0) {
                                             $answers[$a] = "Buzz!";
@@ -159,7 +162,7 @@
 
                                 for ($a=0;$a<=$input;$a++) {
                                     if ($a != 0) {
-                                        if (($a % 3 == 0) and ($a % 5 == 0))  {
+                                        if (($a % 15 == 0))  {
                                             $answers[$a] = "Fizz Buzz!";
                                         } elseif ($a % 5 == 0) {
                                             $answers[$a] = "Buzz!";
