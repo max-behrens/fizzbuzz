@@ -26,7 +26,7 @@
         <section class="title">
             <div class="container">
                 <div>
-                    <h1 class="title-main">FIZZ BUZZ!</h1>
+                    <!--<h1 class="title-main">FIZZ BUZZ!</h1>-->
                     <p>
                         Please enter a number between 1 and 99 in the box below, then press <b>"Submit".</b>
                     </p>
@@ -71,23 +71,53 @@
                 <div class='output-text'>
                     <?php
                 
+
+
                             $input = $_POST['textbox'];
                             $answers = array();
 
-                            for ($a=1;$a<=$input;$a++) {
-                                if (($a % 3 == 0) and ($a % 5 == 0))  {
-                                    $answers[] = "Fizz Buzz!";
-                                } elseif ($a % 5 == 0) {
-                                    $answers[] = "Buzz!";
-                                } elseif ($a % 3 == 0) {
-                                    $answers[] = "Fizz!";
-                                } else {
-                                    $answers[] = $a;
+                            for ($a=0;$a<=$input;$a++) {
+                                if ($a != 0) {
+                                    if (($a % 3 == 0) and ($a % 5 == 0))  {
+                                        $answers[$a] = "Fizz Buzz!";
+                                    } elseif ($a % 5 == 0) {
+                                        $answers[$a] = "Buzz!";
+                                    } elseif ($a % 3 == 0) {
+                                        $answers[$a] = "Fizz!";
+                                    } elseif ($a == 0) {
+                                        $answers[$a] = $a;
+                                    } else {
+                                        $answers[$a] = $a;
+                                    }
                                 }
                             }
 
+                          
+
+                            $length = 8;
+
+                            for ($b=0;$b<=count($answers);$b++) {
+                                $binary_answers[$b] = base_convert($b, 10, 2);
+                                $binary_formatted[$b] = substr(str_repeat(0, $length).$binary_answers[$b], - $length);
+                                $binary_formatted[$b] = $binary_formatted[$b]."!";
+                                if ($answers[$b] == "Fizz!") {
+                                    $binary_formatted[$b] = "Fizz!";
+                                } elseif ($answers[$b] == "Buzz!") {
+                                    $binary_formatted[$b] = "Buzz!";
+                                } elseif ($answers[$b] == "Fizz Buzz!") {
+                                    $binary_formatted[$b] = "Fizz Buzz!";
+                                }
+                            }
+
+
+                           
+
+                            $binary_string = implode(', ',$binary_formatted);
+                            print_r($binary_string);
+
                             $string_answers = implode(', ',$answers);
-                            print $string_answers;
+
+                            //print $string_answers;
                     ?>
                 </div>
 
