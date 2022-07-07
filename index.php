@@ -82,94 +82,114 @@
 
         <?php
         if ($_POST["ten"]) {
-        ?>
-            <section class='output'>
-                
-                <div class='output-text'>
-                    <?php
- 
-                            $input = $_POST['textbox'];
-                            $answers = array();
+            if (($_POST["textbox"] > -1) and ($_POST["textbox"] < 100)) {
+                    ?>
+                <section class='output'>
+                    
+                    <div class='output-text'>
+                        <?php
+    
+                                $input = $_POST['textbox'];
+                                $answers = array();
 
-                            for ($a=0;$a<=$input;$a++) {
-                                if ($a != 0) {
-                                    if (($a % 3 == 0) and ($a % 5 == 0))  {
-                                        $answers[$a] = "Fizz Buzz!";
-                                    } elseif ($a % 5 == 0) {
-                                        $answers[$a] = "Buzz!";
-                                    } elseif ($a % 3 == 0) {
-                                        $answers[$a] = "Fizz!";
-                                    } elseif ($a == 0) {
-                                        $answers[$a] = $a;
-                                    } else {
-                                        $answers[$a] = $a;
+                                for ($a=0;$a<=$input;$a++) {
+                                    if ($a != 0) {
+                                        if (($a % 3 == 0) and ($a % 5 == 0))  {
+                                            $answers[$a] = "Fizz Buzz!";
+                                        } elseif ($a % 5 == 0) {
+                                            $answers[$a] = "Buzz!";
+                                        } elseif ($a % 3 == 0) {
+                                            $answers[$a] = "Fizz!";
+                                        } elseif ($a == 0) {
+                                            $answers[$a] = $a;
+                                        } else {
+                                            $answers[$a] = $a;
+                                        }
                                     }
                                 }
-                            }
 
-                            $length = 8;
+                                $length = 8;
 
-                            for ($b=0;$b<=count($answers);$b++) {
-                                $binary_answers[$b] = base_convert($b, 10, 2);
-                                $binary_formatted[$b] = substr(str_repeat(0, $length).$binary_answers[$b], - $length);
-                                $binary_formatted[$b] = $binary_formatted[$b]."!";
-                                if ($answers[$b] == "Fizz!") {
-                                    $binary_formatted[$b] = "Fizz!";
-                                } elseif ($answers[$b] == "Buzz!") {
-                                    $binary_formatted[$b] = "Buzz!";
-                                } elseif ($answers[$b] == "Fizz Buzz!") {
-                                    $binary_formatted[$b] = "Fizz Buzz!";
+                                for ($b=0;$b<=count($answers);$b++) {
+                                    $binary_answers[$b] = base_convert($b, 10, 2);
+                                    $binary_formatted[$b] = substr(str_repeat(0, $length).$binary_answers[$b], - $length);
+                                    $binary_formatted[$b] = $binary_formatted[$b]."!";
+                                    if ($answers[$b] == "Fizz!") {
+                                        $binary_formatted[$b] = "Fizz!";
+                                    } elseif ($answers[$b] == "Buzz!") {
+                                        $binary_formatted[$b] = "Buzz!";
+                                    } elseif ($answers[$b] == "Fizz Buzz!") {
+                                        $binary_formatted[$b] = "Fizz Buzz!";
+                                    }
                                 }
-                            }
 
-                            $binary_string = implode(', ',$binary_formatted);
-                            print_r($binary_string);
+                                $binary_string = implode(', ',$binary_formatted);
+                                print_r($binary_string);
 
-                            $string_answers = implode(', ',$answers);
+                                $string_answers = implode(', ',$answers);
 
-                            //print $string_answers;
-                    ?>
+                                //print $string_answers;
+                        ?>
+                    </div>
+
+                </section>
+            <?php
+                
+            } else {
+
+                ?> 
+                <div class='error-textbox'>
+                    <p>Please enter a value between 0 and 99.</p>
                 </div>
-
-            </section>
-        <?php
+                <?php
+            }
+            
         }
 
         if ($_POST["two"]) {
-        ?>
-            <section class='output'>
-                
-                <div class='output-text'>
-                    <?php
-                
-                            $input = $_POST['textbox'];
-                            $answers = array();
+            if (($_POST["textbox"] > -1) and ($_POST["textbox"] < 100)) {
+            ?>
+                <section class='output'>
+                    
+                    <div class='output-text'>
+                        <?php
+                    
+                                $input = $_POST['textbox'];
+                                $answers = array();
 
-                            for ($a=0;$a<=$input;$a++) {
-                                if ($a != 0) {
-                                    if (($a % 3 == 0) and ($a % 5 == 0))  {
-                                        $answers[$a] = "Fizz Buzz!";
-                                    } elseif ($a % 5 == 0) {
-                                        $answers[$a] = "Buzz!";
-                                    } elseif ($a % 3 == 0) {
-                                        $answers[$a] = "Fizz!";
-                                    } elseif ($a == 0) {
-                                        $answers[$a] = $a;
+                                for ($a=0;$a<=$input;$a++) {
+                                    if ($a != 0) {
+                                        if (($a % 3 == 0) and ($a % 5 == 0))  {
+                                            $answers[$a] = "Fizz Buzz!";
+                                        } elseif ($a % 5 == 0) {
+                                            $answers[$a] = "Buzz!";
+                                        } elseif ($a % 3 == 0) {
+                                            $answers[$a] = "Fizz!";
+                                        } elseif ($a == 0) {
+                                            $answers[$a] = $a;
+                                        } else {
+                                            $answers[$a] = $a;
+                                        }
                                     } else {
                                         $answers[$a] = $a;
                                     }
-                                } else {
-                                    $answers[$a] = $a;
                                 }
-                            }
 
-                            $string_answers = implode(', ',$answers);
-                            print $string_answers;
-                    ?>
+                                $string_answers = implode(', ',$answers);
+                                print $string_answers;
+                        ?>
+                    </div>
+
+                </section>
+            <?php
+            } else {
+
+                ?> 
+                <div class='error-textbox'>
+                    <p>Please enter a value between 0 and 99.</p>
                 </div>
-
-            </section>
-        <?php
+                <?php
+            }
         }
         ?>
 

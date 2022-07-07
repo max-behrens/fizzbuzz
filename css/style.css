@@ -61,6 +61,12 @@ body {
   text-align: center;
 }
 
+.error-textbox {
+  font-size: 14pt;
+  padding-top: 20px;
+  text-align: center;
+}
+
 .button {
   width: 250px;
   font-size: 1em;
