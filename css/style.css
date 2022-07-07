@@ -1,5 +1,6 @@
 :root {
   --primary-color: #047aed;
+  --secondary-color: #00AFE1;
 }
 
 * {
@@ -55,11 +56,15 @@ body {
   padding-top: 30px;
 }
 
+.answer-textbox {
+  padding-bottom: 0px;
+  text-align: center;
+}
+
 .button {
   width: 250px;
   font-size: 1em;
   display: block;
-  border: 2px solid #00AFE1;
   -webkit-border-radius: 5px;
   -moz-border-radius: 5px;
   border-radius: 5px;
@@ -68,9 +73,22 @@ body {
   margin: auto;
   color: #fff;
   font-weight: 700;
-  background: #00AFE1;
+  background: var(--secondary-color);
   cursor: pointer;
   margin-bottom: 30px;
+}
+
+.format-buttons {
+  display: flex;
+  justify-content: center;
+}
+
+.base-two .button {
+  margin-left: 10px;
+}
+
+.base-ten .button {
+  margin-right: 10px;
 }
 
 

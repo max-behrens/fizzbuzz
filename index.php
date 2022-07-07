@@ -26,9 +26,9 @@
         <section class="title">
             <div class="container">
                 <div>
-                    <!--<h1 class="title-main">FIZZ BUZZ!</h1>-->
+                    <h1 class="title-main">FIZZ BUZZ!</h1>
                     <p>
-                        Please enter a number between 1 and 99 in the box below, then press <b>"Submit".</b>
+                        Please enter a number between <b>1 and 99</b> into the box above your chosen button, then click the button to reveal the output.</b>
                     </p>
                 </div>
             </div>
@@ -37,42 +37,57 @@
 
         <!-- Input Form -->
 
-        <form method='post' action='index.php'>
-            <input type='hidden' name='page' value='index.php'>
-            <input type='hidden' name='dosubmit' value='1'>
-            <input type='hidden' name='pageaction' value='update'>
+        <div class='format-buttons'>
 
-            <div class='textbox'>
-                <p>Input Number Here:</p>
-                <input type='text' name='textbox' id='textbox' value='' class='medium' style='color: #333333;'>
-            </div>
+            <form method='post' action='index.php'>
 
-            <div>
-                <input type='submit' value='Submit' class='button'>
-            </div>
+                <div class='textbox'>
+                    <p>Input Number Here:</p>
+                    <input type='text' name='textbox' id='textbox' value='' class='medium' style='color: #333333;'>
+                </div>
 
-        </form>
+                <input type='hidden' name='page' value='index.php'>
+                <input type='hidden' name='ten' value='1'>
+                <input type='hidden' name='pageaction' value='update'>
 
+                <div class='base-ten'>
+                    <input type='submit' value='Submit in Base 10' class='button'>
+                </div>
+
+            </form>
+           
+            <form method='post' action='index.php'>
+
+                <div class='textbox'>
+                    <p>Input Number Here:</p>
+                    <input type='text' name='textbox' id='textbox' value='' class='medium' style='color: #333333;'>
+                </div>
+
+                <input type='hidden' name='page' value='index.php'>
+                <input type='hidden' name='two' value='1'>
+                <input type='hidden' name='pageaction' value='update'>
+
+                <div class='base-two'>
+                    <input type='submit' value='Submit in Base 2' class='button'>
+                </div>
+            </form>
+
+        </div>
+
+
+        <div class='answer-textbox'>
+            <p><b>ANSWER:</b></p>
+        </div>
 
 
         <?php
-        if ($_POST['dosubmit']) {
+        if ($_POST["ten"]) {
         ?>
-
             <section class='output'>
-
-                <!--<div>
-                    <h1 class="main">FIZZ BUZZ!</h1>
-                    <p class="sub">
-                        Please enter a number between 1 and 99 in the box below, then press <b>"Submit".</b>
-                    </p>
-                </div>-->
                 
                 <div class='output-text'>
                     <?php
-                
-
-
+ 
                             $input = $_POST['textbox'];
                             $answers = array();
 
@@ -92,8 +107,6 @@
                                 }
                             }
 
-                          
-
                             $length = 8;
 
                             for ($b=0;$b<=count($answers);$b++) {
@@ -109,9 +122,6 @@
                                 }
                             }
 
-
-                           
-
                             $binary_string = implode(', ',$binary_formatted);
                             print_r($binary_string);
 
@@ -122,7 +132,43 @@
                 </div>
 
             </section>
+        <?php
+        }
 
+        if ($_POST["two"]) {
+        ?>
+            <section class='output'>
+                
+                <div class='output-text'>
+                    <?php
+                
+                            $input = $_POST['textbox'];
+                            $answers = array();
+
+                            for ($a=0;$a<=$input;$a++) {
+                                if ($a != 0) {
+                                    if (($a % 3 == 0) and ($a % 5 == 0))  {
+                                        $answers[$a] = "Fizz Buzz!";
+                                    } elseif ($a % 5 == 0) {
+                                        $answers[$a] = "Buzz!";
+                                    } elseif ($a % 3 == 0) {
+                                        $answers[$a] = "Fizz!";
+                                    } elseif ($a == 0) {
+                                        $answers[$a] = $a;
+                                    } else {
+                                        $answers[$a] = $a;
+                                    }
+                                } else {
+                                    $answers[$a] = $a;
+                                }
+                            }
+
+                            $string_answers = implode(', ',$answers);
+                            print $string_answers;
+                    ?>
+                </div>
+
+            </section>
         <?php
         }
         ?>
